@@ -1,0 +1,21 @@
+<html xmlns:th="http://ww.thymeleaf.org">
+<head>
+	<title>Add food</title>
+	<meta http-equiv="content-Type" content="text/html;charset=UTF-8"/>
+	<link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<body>
+	<h1>New Food</h1>
+	<div>
+		<form th:object="${food}" th:action="@{save}" action="#" method="post">
+			<input type="text" th:field="*{nume}" class="form-control" placeholder="Nume"/>
+			<div style="clear:both; display:block; height:10px"></div>
+			<input type="text" th:field="*{UnitateDeMasura}" class="form-control" placeholder="Unitate de masura"/>
+			<div style="clear:both; display:block; height:10px"></div>
+			<input type="text" th:field="*{calorii}" class="form-control" placeholder="Calorii"/>
+			<div style="clear:both; display:block; height:10px"></div>
+			<input type="submit" class="btn btn-success" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>

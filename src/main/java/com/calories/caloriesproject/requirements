@@ -1,0 +1,15 @@
+Se doreste implementarea unei aplicatii de contorizare a caloriilor consumate de o persoana.
+Pentru asta o persoana poate introduce in aplicatie o descriere cu alimentele consumate si poate vizualiza o statistica cu caloriile consumate pe zi.
+O inregistrare consta din: data si ora, aliment, cantitate intr-o unitate de masura potrivita cu produsul (ex: 15.01.2018 13:00, mar, 200)
+Un aliment este descris prin: nume, unitate de masura, nr. calorii per unitate de masura (ex: mar, g, 0.20)
+Unitatile de masura acceptate sunt: g, ml, kg, buc.
+Pot exista mai multe unitati de masura acceptate pentru acelasi aliment (ex: buc si g)
+Aplicatia va contine un meniu cu urmatoarele operatii:
+1.	Management alimente
+a.	Adaugare
+b.	Stergere
+
+2.	Food log
+a.	Adaugare inregistrare
+b.	Stergere inregistrare
+c.	Statistici: nr de calorii consumate pe zi

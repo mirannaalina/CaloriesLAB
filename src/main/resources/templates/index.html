@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>FoodList</title>
+	<meta http-equiv="content-Type" content="text/html;charset=UTF-8"/>
+	<link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+</head>
+<body>
+	<h1>Food Calories</h1>
+	<table class="table tabe-striped">
+		<tr>
+			<th>Nume</th>
+			<th>Unitate De Masura</th>
+			<th>Calorii</th>
+			<th>Action</th>
+		</tr>
+		<tr th:each="food: ${foods}">
+			<td th:text="${food.nume}"></td>
+			<td th:text="${food.UnitateDeMasura}"></td>
+			<td th:text="${food.calorii}"></td>
+			<td><a th:href="@{/delete/{id}(id=${food.id})}" class="btn btn-danger">Delete</a></td>
+		</tr>
+		<tr>
+		<th>Ai acumulat calorii:</th>
+        </tr>
+        <tr>
+<td th:text="${sumaCalorii}"></td>
+</tr>
+	</table>
+	<a href="/add" class="btn btn-success">Add Food</a>
+</body>
+</html>
