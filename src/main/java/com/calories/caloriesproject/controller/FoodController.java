@@ -24,7 +24,7 @@ public class FoodController {
 
     @GetMapping("/home")
     public String index(Model model){
-        List<Food> foods = (List<Food>)foodRepository.findAll();
+        List<Food> foods = foodRepository.findAll();
         model.addAttribute("foods",foods);
         model.addAttribute("sumaCalorii",foodService.calculateCalories(foods));
         return "index.html";
