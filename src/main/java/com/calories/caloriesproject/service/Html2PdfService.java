@@ -11,9 +11,7 @@ import java.util.Map;
 
 public interface Html2PdfService {
 
-    InputStreamResource generatePDF(Map<String, Object> data);
+   // InputStreamResource generatePDF(Map<String, Object> data);
 
-    List<Food> getAllFood();
-
-    boolean createPdf(List<Food> f , ServletContext context, HttpServletRequest request, HttpServletResponse response);
+   // boolean createPdf(List<Food> f , ServletContext context, HttpServletRequest request, HttpServletResponse response);
 }

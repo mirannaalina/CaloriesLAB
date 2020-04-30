@@ -1,5 +1,6 @@
 package com.calories.caloriesproject.controller;
 
+import com.calories.caloriesproject.config.PdfGeneratorUtil;
 import com.calories.caloriesproject.persistence.Food;
 import com.calories.caloriesproject.service.Html2PdfService;
 import com.calories.caloriesproject.service.Html2PdfServiceImpl;
@@ -31,7 +32,8 @@ import java.util.Map;
 //@RequiredArgsConstructor
 public class Html2PdfRestController {
 
-    //private final Html2PdfService pdfService;
+
+ /*   //private final Html2PdfService pdfService;
     @Autowired
     private Html2PdfService html2PdfService;
 
@@ -73,12 +75,7 @@ public class Html2PdfRestController {
             }
         }
     }
-
-
-
-
-
-
+*/
 
 
  //   @PostMapping("/html2pdf")

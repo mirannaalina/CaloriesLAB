@@ -1,5 +1,6 @@
 package com.calories.caloriesproject.controller;
 
+import com.calories.caloriesproject.config.PdfGeneratorUtil;
 import com.calories.caloriesproject.persistence.Food;
 import com.calories.caloriesproject.persistence.FoodRepository;
 import com.calories.caloriesproject.service.FoodService;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class FoodController {
@@ -24,7 +27,7 @@ public class FoodController {
 
     @GetMapping("/home")
     public String index(Model model){
-        List<Food> foods = foodRepository.findAll();
+        List<Food> foods = foodService.getAllFood();
         model.addAttribute("foods",foods);
         model.addAttribute("sumaCalorii",foodService.calculateCalories(foods));
         return "index.html";
@@ -44,6 +47,22 @@ public class FoodController {
         foodRepository.deleteById(foodId);
         return "redirect:/home";
 
+    }
+
+
+    @Autowired
+    public PdfGeneratorUtil pdfGeneratorUtil;
+
+    @GetMapping("/html2pdf")
+    public String html2pdf(){
+        Map<String,String> data = new HashMap<>();
+        data.put("te222","fail");
+                try {
+                    pdfGeneratorUtil.createPdf("index", data);
+                }catch (Exception e){
+                    System.out.println("failed");
+                }
+                return "redirect:/home";
     }
 
 }

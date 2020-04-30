@@ -36,7 +36,7 @@ import static sun.plugin.javascript.navig.JSType.Document;
 @RequiredArgsConstructor
 @Log
 public class Html2PdfServiceImpl implements Html2PdfService{
-
+/*
     //https://www.youtube.com/watch?v=nahkuhuEQXg
 
     //https://www.youtube.com/watch?v=0RdfQHI29mE
@@ -62,11 +62,6 @@ public class Html2PdfServiceImpl implements Html2PdfService{
           return null;
      }
 
-     //I created findAll method over service too
-     @Override
-     public List<Food> getAllFood(){
-        return foodRepository.findAll();
-     }
 
     @Override
     public boolean createPdf(List<Food> foods, ServletContext context, HttpServletRequest request, HttpServletResponse response) {
@@ -163,5 +158,5 @@ public class Html2PdfServiceImpl implements Html2PdfService{
 
         }
          return false;
-    }
+    }*/
 }
