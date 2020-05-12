@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -60,18 +59,26 @@ public class FoodController {
     @GetMapping("/download")
     public void downloadfile(HttpServletRequest request,
                                            HttpServletResponse response){
-       String dataDirectory = request.getServletContext().getRealPath("/Users/mirannaalina/Downloads");
-       Path file = Paths.get(dataDirectory);
-       if(Files.exists(file))
-           response.setContentType("application/pdf");
-       response.addHeader("Content-Disposition","attachment");
-       try{
-           Files.copy(file,response.getOutputStream());
-           response.getOutputStream().flush();
-       }catch(IOException e){
-           e.printStackTrace();
-        }
 
+        String FILE_PATH = "//Users//mirannaalina//Downloads//test.pdf";
+        File file = new File(FILE_PATH);
+
+        response.setContentType("application/pdf");
+        response.setHeader("Content-Disposition", "attachment;filename=" + file.getName());
+        try {
+            BufferedInputStream inStream = new BufferedInputStream(new FileInputStream(file));
+            BufferedOutputStream outStream = new BufferedOutputStream(response.getOutputStream());
+
+            byte[] buffer = new byte[1024];
+            int bytesRead = 0;
+            while ((bytesRead = inStream.read(buffer)) != -1) {
+                outStream.write(buffer, 0, bytesRead);
+            }
+            outStream.flush();
+            inStream.close();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 }
