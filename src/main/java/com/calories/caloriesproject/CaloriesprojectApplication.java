@@ -10,4 +10,5 @@ public class CaloriesprojectApplication {
 		SpringApplication.run(CaloriesprojectApplication.class, args);
 	}
 
+
 }
